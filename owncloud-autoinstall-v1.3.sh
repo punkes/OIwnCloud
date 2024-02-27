@@ -133,3 +133,26 @@ CREATE DATABASE $mysql_database;
 GRANT ALL ON $mysql_database.* TO '$mysql_user'@'localhost' IDENTIFIED BY '$mysql_password';
 FLUSH PRIVILEGES;
 EOF
+
+# Restart Apache2
+systemctl restart apache2
+
+clear
+
+# Punkes
+echo "                                   ▀███                      "
+echo "                                     ██                      "
+echo "   ▀████████▄▀███  ▀███ ▀████████▄   ██  ▄██▀  ▄▄█▀██ ▄██▀███"
+echo "     ██   ▀██  ██    ██   ██    ██   ██ ▄█    ▄█▀   ████   ▀▀"
+echo "     ██    ██  ██    ██   ██    ██   ██▄██    ██▀▀▀▀▀▀▀█████▄"
+echo "     ██   ▄██  ██    ██   ██    ██   ██ ▀██▄  ██▄    ▄█▄   ██"
+echo "     ██████▀   ▀████▀███▄████  ████▄████▄ ██▄▄ ▀█████▀██████▀"
+echo "     ██                                                      "
+echo "   ▄████▄                                                    "
+
+echo "The script has completed successfully. To access OwnCloud, open a browser and navigate to the following IP address:"
+
+# Get the IP address
+ip_address=$(hostname -I | grep -oP '^\d+\.\d+\.\d+\.\d+' | awk '{print $1}')
+
+echo "$ip_address"
